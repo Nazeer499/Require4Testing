@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <persistence-unit name="Require4TestingPU" transaction-type="JTA">
+        <!-- Provider: Hibernate -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Liste der Entity-Klassen -->
+        <class>de.iu.require4testing.entities.Anforderung</class>
+        <class>de.iu.require4testing.entities.Testfall</class>
+        <class>de.iu.require4testing.entities.Testlauf</class>
+
+        <!-- Datenbankkonfiguration -->
+        <properties>
+            <!-- Datenbank-URL -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/require4testing?serverTimezone=UTC"/>
+            
+            <!-- Datenbankbenutzername -->
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            
+            <!-- Datenbankpasswort -->
+            <property name="javax.persistence.jdbc.password" value="1234"/>
+            
+            <!-- JDBC-Treiber -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            
+            <!-- Hibernate-Einstellungen -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- Erstellt Tabellen automatisch -->
+            <property name="hibernate.show_sql" value="true"/> <!-- Zeigt SQL-Anweisungen in der Konsole -->
+            <property name="hibernate.format_sql" value="true"/> <!-- Formatierung der SQL-Anweisungen -->
+        </properties>
+    </persistence-unit>
+</persistence>
